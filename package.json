@@ -1,0 +1,25 @@
+{
+  "name": "desktop-chat-nw",
+  "version": "1.0.0",
+  "description": "A demo desktop chat app built with CometChat, React and Nw.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihailgaberov/desktop-chat-nw.git"
+  },
+  "keywords": [
+    "chat",
+    "react",
+    "node",
+    "nw"
+  ],
+  "author": "Mihail Gaberov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mihailgaberov/desktop-chat-nw/issues"
+  },
+  "homepage": "https://github.com/mihailgaberov/desktop-chat-nw#readme"
+}

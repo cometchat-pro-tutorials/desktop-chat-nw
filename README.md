@@ -1,2 +1,2 @@
 # Desktop Chat
-A demo desktop chat app built with React, NW.js and CometChat
+A demo desktop chat app built with CometChat, React and Nw.js
