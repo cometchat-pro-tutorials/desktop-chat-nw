@@ -13,9 +13,11 @@
     "min_height": 320,
     "position": "center",
     "resizable": true,
-    "icon": "./assets/icon-48x48.png"
+    "icon": "./assets/icon-48x48.png",
+    "toolbar": "true"
   },
   "dependencies": {
+    "nw": "^0.38.1-sdk",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0"
