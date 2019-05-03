@@ -8,9 +8,9 @@ const App = () => {
   const name = "Name";
 
   return (
-    <div className="window">
+    <div>
       <Header />
-      <div className="window-content">
+      <div>
         {name ? <ChatPane /> : <Welcome />}
       </div>
       <Footer />
