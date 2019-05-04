@@ -3,7 +3,7 @@ import * as manifest from "../../package.json";
 
 const Footer = () => (
   <footer>
-    <h1 className="title">{manifest.name} v.{manifest.version}</h1>
+    <h5 style={{textAlign: 'center'}}>{manifest.name} v.{manifest.version}</h5>
   </footer>
 );
 
