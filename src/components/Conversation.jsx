@@ -1,5 +1,7 @@
 import React from "react";
 import { Button } from "@material-ui/core";
+import TextField from '@material-ui/core/TextField';
+
 
 const Conversation = () => (
   <div>
@@ -12,12 +14,23 @@ const Conversation = () => (
         </div>
       </li>
     </ul>
-    <form>
+    <form style={{margin: 14}}>
       <div>
-        <textarea required placeholder="Say something..."/>
+        <TextField
+          id="outlined-multiline-flexible"
+          label="Say something..."
+          multiline
+          fullWidth
+          rowsMax="6"
+          value={''}
+          onChange={console.log('>>> text area change')}
+          className="text-area"
+          margin="normal"
+          variant="outlined"
+        />
       </div>
       <div>
-      <Button variant="contained" color="primary">OK</Button>
+        <Button variant="contained" color="secondary">OK</Button>
       </div>
     </form>
   </div>
