@@ -1,4 +1,10 @@
 .sidebar {
   width: 25%;
-  border-right: 1px solid lightblue;
+  border-right: 1px solid darkgray;
+  background-color: darkslategray;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
 }
