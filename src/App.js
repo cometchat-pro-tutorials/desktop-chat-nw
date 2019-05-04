@@ -8,13 +8,11 @@ const App = () => {
   const name = "Name";
 
   return (
-    <div>
+    <>
       <Header />
-      <div>
         {name ? <ChatPane /> : <Welcome />}
-      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
