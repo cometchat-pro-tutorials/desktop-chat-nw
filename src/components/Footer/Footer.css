@@ -4,4 +4,8 @@ footer  h5 {
   font-weight: normal;
   background-color: ghostwhite;
   padding: 3px 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

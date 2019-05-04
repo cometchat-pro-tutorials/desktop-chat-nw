@@ -14,7 +14,7 @@ const Conversation = () => (
         </div>
       </li>
     </ul>
-    <form style={{ margin: 14 }}>
+    <form className="chat-form">
       <div>
         <TextField
           id="outlined-multiline-flexible"
@@ -30,7 +30,7 @@ const Conversation = () => (
         />
       </div>
       <div>
-        <Button variant="contained" color="secondary">OK</Button>
+        <Button variant="contained" color="secondary">SEND</Button>
       </div>
     </form>
   </div>

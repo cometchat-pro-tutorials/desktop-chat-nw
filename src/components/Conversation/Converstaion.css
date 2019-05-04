@@ -1,3 +1,10 @@
 .conversation {
   width: 75%;
 }
+
+.chat-form {
+  position: fixed;
+  bottom: 0;
+  width: 70%;
+  margin: 0 0 36px 14px;
+}
