@@ -1,5 +1,5 @@
 import React from "react";
-import { AccessAlarm } from '@material-ui/icons';
+import { PermIdentity } from '@material-ui/icons';
 
 
 
@@ -8,9 +8,7 @@ const Participants = () => (
     <ul>
       <li>
         <div>
-          <strong>
-            <AccessAlarm />
-            Name</strong>
+          <strong><PermIdentity />Name</strong>
           <p>Joined 2 min ago</p>
         </div>
       </li>

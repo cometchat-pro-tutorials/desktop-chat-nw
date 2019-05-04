@@ -14,7 +14,7 @@ const Conversation = () => (
     </ul>
     <form>
       <div>
-        <textarea required placeholder="Say something..."></textarea>
+        <textarea required placeholder="Say something..."/>
       </div>
       <div>
       <Button variant="contained" color="primary">OK</Button>
