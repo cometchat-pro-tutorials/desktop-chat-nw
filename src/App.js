@@ -1,8 +1,8 @@
 import React from "react";
-import ChatPane from "./components/ChatPane";
-import Welcome from "./components/Welcome";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import ChatPane from "./components/ChatPane/ChatPane";
+import Welcome from "./components/Welcome/Welcome";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const name = "Name";

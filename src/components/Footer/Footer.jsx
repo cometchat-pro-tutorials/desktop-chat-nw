@@ -1,5 +1,5 @@
 import React from "react";
-import * as manifest from "../../package.json";
+import * as manifest from "../../../package.json";
 
 const Footer = () => (
   <footer>

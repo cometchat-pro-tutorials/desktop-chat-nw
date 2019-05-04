@@ -1,14 +1,14 @@
 import React from "react";
-import { PermIdentity } from '@material-ui/icons';
-
+import { PermIdentity } from '@material-ui/icons/index';
+import "./Participants.css";
 
 
 const Participants = () => (
-  <div>
+  <div className="sidebar">
     <ul>
       <li>
         <div>
-          <strong><PermIdentity />Name</strong>
+          <strong><PermIdentity />John Doe</strong>
           <p>Joined 2 min ago</p>
         </div>
       </li>
