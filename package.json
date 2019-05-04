@@ -7,8 +7,8 @@
   "window": {
     "show": true,
     "frame": true,
-    "width": 580,
-    "height": 320,
+    "width": 800,
+    "height": 600,
     "min_width": 450,
     "min_height": 320,
     "position": "center",
