@@ -7,4 +7,22 @@
 
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 7px 0;
+}
+
+.participant-area {
+  border-bottom: 1px solid lightgray;
+  padding-left: 7px;
+}
+
+.participant-area p {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.participant svg {
+  position: relative;
+  top: 4px;
+  margin-right: 7px;
 }
