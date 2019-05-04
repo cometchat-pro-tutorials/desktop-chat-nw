@@ -2,18 +2,11 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import TextField from '@material-ui/core/TextField/index';
 import "./Converstaion.css";
+import Messages from '../Messages/Messages';
 
 const Conversation = () => (
   <div className="conversation">
-    <ul>
-      <li>
-        <div>
-          <time>10:33:55 AM</time>
-          <strong>John Doe:</strong>
-          <p>Hello, how are you today?</p>
-        </div>
-      </li>
-    </ul>
+    <Messages/>
     <form className="chat-form">
       <div>
         <TextField

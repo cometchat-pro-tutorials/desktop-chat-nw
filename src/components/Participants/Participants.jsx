@@ -8,8 +8,14 @@ const Participants = () => (
     <ul>
       <li className="participant-area">
         <div className="participant">
+          <PermIdentity /><strong>Mihail Gaberov</strong>
+          <p>Joined 2 mins ago</p>
+        </div>
+      </li>
+      <li className="participant-area">
+        <div className="participant">
           <PermIdentity /><strong>John Doe</strong>
-          <p>Joined 2 min ago</p>
+          <p>Joined 1 min ago</p>
         </div>
       </li>
     </ul>
