@@ -1,3 +1,5 @@
+import { sendChatMessage } from "../chat-api"
+
 export const INIT_BEGIN = 'INIT_BEGIN';
 export const INIT_SUCCESS = 'INIT_SUCCESS';
 export const INIT_FAILED = 'INIT_FAILED';
@@ -37,15 +39,31 @@ export const loginFailed = () => ({
 });
 
 // Send message
-export const sendMessageBegin = (message) => ({
+export const sendMessageBegin = message => ({
   type: SEND_MESSAGE_BEGIN,
-  payload: { message }
+  payload: {message}
 });
 
 export const sendMessageSuccess = () => ({
   type: SEND_MESSAGE_SUCCESS
 });
 
-export const sendMessageFailed = () => ({
-  type: SEND_MESSAGE_FAILED
+export const sendMessageFailed = error => ({
+  type: SEND_MESSAGE_FAILED,
+  payload: {error}
 });
+
+
+export function sendMessage(message) {
+  return dispatch => {
+    dispatch(sendMessageBegin(message));
+    return sendChatMessage(message)
+      .then(json => {
+        dispatch(sendMessageSuccess());
+        return json;
+      })
+      .catch(error =>
+        dispatch(sendMessageFailed(error))
+      );
+  };
+}
