@@ -1,20 +1,35 @@
-import { SEND_MESSAGE } from '../actions'
+import {
+  SEND_MESSAGE_SUCCESS,
+  SEND_MESSAGE_BEGIN,
+  SEND_MESSAGE_FAILED
+} from '../actions';
 
 const initialState = {
-  messages: []
+  messages: [],
+  error: null
 };
 
-function messageReducer(state, action) {
-  if (typeof state === 'undefined') {
-    return initialState;
-  }
+export default function messageReducer(state = initialState, action) {
+  switch(action.type) {
+    case SEND_MESSAGE_BEGIN:
+      return {
+        ...state,
+        error: null
+      };
 
-  if (action.type === SEND_MESSAGE) {
-    return Object.assign({}, state, {
-      message: action.message
-    });
+    case SEND_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        messages: action.payload.messages
+      };
+
+    case SEND_MESSAGE_FAILED:
+      return {
+        ...state,
+        error: action.payload.error
+      };
+
+    default:
+      return state;
   }
-  return state;
 }
-
-export default messageReducer;
