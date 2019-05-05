@@ -5,7 +5,7 @@ const appID = process.env.APP_ID;
 const apiKey = process.env.API_KEY;
 const UID = process.env.UID;
 
-export const init = () => {
+export const initChat = () => {
   CometChat.init(appID).then(
     () => {
       console.log("Initialization completed successfully");
@@ -32,7 +32,7 @@ export const login = () => {
 
 export const sendChatMessage = message => {
   const receiverID = "UID";
-  const messageText = "Hello world!";
+  const messageText = message;
   const messageType = CometChat.MESSAGE_TYPE.TEXT;
   const receiverType = CometChat.RECEIVER_TYPE.USER;
 
