@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 
-import "./Welcome.css";
 import { storeToLocalStorage } from "../../utils/localStorageService";
+import "./Welcome.css";
 
 const Welcome = ({ callback }) => {
     const [username, setUsername] = useState('');
