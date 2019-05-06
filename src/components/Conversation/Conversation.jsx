@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Button, TextField } from "@material-ui/core";
 
 import Messages from "../Messages/Messages";
-import { sendMessageBegin } from "../../actions"
+import { sendMessage } from "../../actions"
 import "./Converstaion.css";
 
 const Conversation = ({sendMessage}) => {
@@ -40,7 +40,7 @@ const Conversation = ({sendMessage}) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  sendMessage: (message) => dispatch(sendMessageBegin(message)),
+  sendMessage: (message) => dispatch(sendMessage(message)),
 });
 
 export default connect(null, mapDispatchToProps)(Conversation);
