@@ -5,7 +5,7 @@ import {
 } from '../actions';
 import initialState from './initialState';
 
-export default function initializationReducer(state = initialState, action) {
+export default function initReducer(state = initialState, action) {
   switch (action.type) {
     case INIT_BEGIN:
       return {
