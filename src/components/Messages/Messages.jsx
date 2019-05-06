@@ -1,6 +1,6 @@
 import React from "react";
-import "./Messages.css";
 
+import "./Messages.css";
 
 const Messages = () => (
   <ul className="messages">
