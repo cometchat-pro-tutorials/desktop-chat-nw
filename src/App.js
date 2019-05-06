@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 import { readRecord } from "./utils/localStorageService";
 
 const App = () => {
-    const [hasName, setHasName] = useState(readRecord('username'));
+    const [hasName, setHasName] = useState(readRecord('username') !== null);
 
     const readName = () => {
         setHasName(readRecord('username') !== null);
