@@ -1,12 +1,12 @@
 import { CometChat } from "@cometchat-pro/chat";
 require('dotenv').config();
 
-const appID = process.env.APP_ID;
-const apiKey = process.env.API_KEY;
-const UID = process.env.UID;
+const appID = process.env.REACT_APP_ID;
+const apiKey = process.env.REACT_APP_API_KEY;
+const UID = process.env.REACT_APP_UID;
 
 export const initChat = () => {
-  CometChat.init(appID).then(
+  return CometChat.init(appID).then(
     () => {
       console.log("Initialization completed successfully");
       // You can now call login function.
@@ -18,8 +18,8 @@ export const initChat = () => {
   );
 };
 
-export const login = () => {
-  CometChat.login(UID, apiKey).then(
+export const loginChat = () => {
+  return CometChat.login(UID, apiKey).then(
     user => {
       console.log("Login Successful:", { user });
     },
@@ -38,7 +38,7 @@ export const sendChatMessage = message => {
 
   const textMessage = new CometChat.TextMessage(receiverID, messageText, messageType, receiverType);
 
-  CometChat.sendMessage(textMessage).then(
+  return CometChat.sendMessage(textMessage).then(
     message => {
       console.log("Message sent successfully:", message);
       // Text Message Sent Successfully
