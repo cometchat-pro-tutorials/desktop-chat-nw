@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Button, TextField } from "@material-ui/core";
 
-import { Button } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField/index";
-import "./Converstaion.css";
 import Messages from "../Messages/Messages";
 import { sendMessageBegin } from "../../actions"
+import "./Converstaion.css";
 
 const Conversation = ({sendMessage}) => {
   const [message, setMessage] = useState('');
