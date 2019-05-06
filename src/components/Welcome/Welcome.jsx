@@ -1,18 +1,40 @@
-import React from "react";
-import { Button } from "@material-ui/core";
+import React, { useState } from "react";
+import { Button, TextField } from "@material-ui/core";
 
-const Welcome = () => (
-  <>
-    <form>
-      <div className="form-group">
-        <label>Tell me your name</label>
-        <input required placeholder="Name"/>
-      </div>
-      <div>
-        <Button variant="contained" color="primary">OK</Button>
-      </div>
-    </form>
-  </>
-);
+import "./Welcome.css";
+import { storeToLocalStorage } from "../../utils/localStorageService";
+
+const Welcome = ({ callback }) => {
+    const [username, setUsername] = useState('');
+
+    const handleClick = () => {
+        storeToLocalStorage('username', username);
+        callback();
+    };
+
+    return (
+        <div className="welcome-screen">
+            <form onSubmit={handleClick}>
+                <div className="form-group">
+                    <div><label htmlFor="username">Enter your name</label></div>
+                    <TextField
+                        name="username"
+                        id="outlined-name"
+                        label="Name"
+                        className=""
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        margin="normal"
+                        variant="outlined"
+                        required
+                    />
+                </div>
+                <div>
+                    <Button variant="contained" color="primary" onClick={handleClick}>Enter Chat</Button>
+                </div>
+            </form>
+        </div>
+    );
+};
 
 export default Welcome;
