@@ -4,3 +4,5 @@ const initialState = {
   connected: false,
   error: null
 };
+
+export default initialState;

@@ -1,32 +1,22 @@
 import {
-  INIT_FAILED,
-  INIT_SUCCESS,
-  INIT_BEGIN
+    INIT_FAILED,
+    INIT_SUCCESS,
+    INIT_BEGIN
 } from '../actions';
 import initialState from './initialState';
 
-export default function initReducer(state = initialState, action) {
-  switch (action.type) {
-    case INIT_BEGIN:
-      return {
-        ...state,
-        error: null
-      };
+export default function initReducer(state = initialState.initialized, action) {
+    switch (action.type) {
+        case INIT_BEGIN:
+            return state;
 
-    case INIT_SUCCESS:
-      return {
-        ...state,
-        initialized: true
-      };
+        case INIT_SUCCESS:
+            return true;
 
-    case INIT_FAILED:
-      return {
-        ...state,
-        initialized: false,
-        error: action.payload.error
-      };
+        case INIT_FAILED:
+            return false;
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 }

@@ -3,25 +3,15 @@ import {
   SEND_MESSAGE_BEGIN,
   SEND_MESSAGE_FAILED
 } from '../actions';
+import initialState from './initialState';
 
-const initialState = {
-  messages: [],
-  error: null
-};
-
-export default function messageReducer(state = initialState, action) {
+export default function messageReducer(state = initialState.messages, action) {
   switch(action.type) {
     case SEND_MESSAGE_BEGIN:
-      return {
-        ...state,
-        error: null
-      };
+      return state;
 
-    case SEND_MESSAGE_SUCCESS:
-      return {
-        ...state,
-        messages: action.payload.messages
-      };
+      case SEND_MESSAGE_SUCCESS:
+      return [...state, action.payload];
 
     case SEND_MESSAGE_FAILED:
       return {

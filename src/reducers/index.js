@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux'
+import init from './initReducer'
+import login from './loginReducer'
 import messages from './messageReducer'
 
 const rootReducer = combineReducers({
-  messages
+    initialized: init,
+    connected: login,
+    messages
 });
 
 export default rootReducer

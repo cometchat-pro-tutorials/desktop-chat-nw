@@ -5,26 +5,16 @@ import {
 } from '../actions';
 import initialState from './initialState';
 
-export default function loginReducer(state = initialState, action) {
+export default function loginReducer(state = initialState.connected, action) {
   switch (action.type) {
     case LOGIN_BEGIN:
-      return {
-        ...state,
-        error: null
-      };
+      return state;
 
     case LOGIN_SUCCESS:
-      return {
-        ...state,
-        connected: true
-      };
+      return true;
 
     case LOGIN_FAILED:
-      return {
-        ...state,
-        connected: false,
-        error: action.payload.error
-      };
+      return false;
 
     default:
       return state;
