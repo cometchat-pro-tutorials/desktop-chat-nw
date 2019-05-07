@@ -43,7 +43,7 @@ function MenuAppBar() {
             <MenuIcon/>
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Chat
+            Mihail's Chat
           </Typography>
           <div>
             <IconButton
