@@ -31,7 +31,7 @@ export const loginChat = () => {
 
 
 export const sendChatMessage = message => {
-  const receiverID = "UID";
+  const receiverID = "SUPERHERO2";
   const messageText = message;
   const messageType = CometChat.MESSAGE_TYPE.TEXT;
   const receiverType = CometChat.RECEIVER_TYPE.USER;
