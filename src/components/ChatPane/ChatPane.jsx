@@ -9,7 +9,7 @@ import "./ChatPane.css";
 const ChatPane = ({init, login}) => {
 
     useEffect(() => {
-        init().then(login);
+        init().then(login().then((userData) => console.log('user: ', userData)));
     });
 
     return (
