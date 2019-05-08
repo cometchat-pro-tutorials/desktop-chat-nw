@@ -14,7 +14,7 @@ const ChatPane = ({ init, login, getUsersList }) => {
             console.log('logging in user: ', userData);
             getUsersList().then(usersList => setUsersList(usersList));
         }));
-    }, []);
+    }, [getUsersList, login, init]);
 
     return (
         <div className="chat-pane">

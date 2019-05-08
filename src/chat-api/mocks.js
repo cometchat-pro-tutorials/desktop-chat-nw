@@ -78,7 +78,7 @@ const usersList = [
         role: 'Brus Lee Guy',
         statusMessage: "I have no patience for your humor.",
         lastActiveAt: 1567307930225
-    },
+    }/*,
     {
         uid: "GORO",
         name: "Goro",
@@ -117,13 +117,13 @@ const usersList = [
         role: 'Nasty Bitch',
         statusMessage: "I know of many.",
         lastActiveAt: 1569007930225
-    }
+    }*/
 ];
 
 const getRandomElement = () => usersList[Math.floor(Math.random() * usersList.length)];
 
 export const initChat = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             resolve();
             console.log("Initialization completed successfully");
@@ -132,13 +132,13 @@ export const initChat = () => {
 };
 
 export const loginChat = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
+            receiveMessage();
             resolve(getRandomElement());
         }, 100);
     });
 };
-
 
 export const sendChatMessage = message => {
     const receiverID = getRandomElement().name;
@@ -148,7 +148,7 @@ export const sendChatMessage = message => {
 
     const textMessage = new CometChat.TextMessage(receiverID, messageText, messageType, receiverType);
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             resolve(textMessage);
         }, 100);
@@ -157,7 +157,7 @@ export const sendChatMessage = message => {
 };
 
 export const fetchUserList = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             resolve(usersList);
         });
@@ -173,4 +173,28 @@ export const fetchUserList = () => {
             console.log("User list fetching failed with error: ", error);
         }
     );*/
+};
+
+export const receiveMessage = () => {
+    const listenerID = getRandomElement().name;
+
+    CometChat.addMessageListener(
+      listenerID,
+      new CometChat.MessageListener({
+          onTextMessageReceived: textMessage => {
+              console.log("Text message successfully", textMessage);
+              // Handle text message
+          },
+          onMediaMessageReceived: mediaMessage => {
+              console.log("Media message received successfully",  mediaMessage);
+              // Handle media message
+          },
+          onCutomMessageReceived: customMessage => {
+              console.log("Custom message received successfully",  customMessage);
+              // Handle custom message
+          }
+
+      })
+    );
+
 };
