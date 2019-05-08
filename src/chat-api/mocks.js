@@ -1,6 +1,6 @@
 import { CometChat } from "@cometchat-pro/chat";
 
-const userList = [
+const usersList = [
     {
         uid: "SUBZERO",
         name: "Sub-Zero",
@@ -12,7 +12,7 @@ const userList = [
         email: 'sub-zero@mortalkombat.com',
         role: 'Cold Ninja',
         statusMessage: "I tire of maintaining our innocence.",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1557307930225
     },
     {
         uid: "SCORPION",
@@ -25,7 +25,7 @@ const userList = [
         email: 'scorpion@mortalkombat.com',
         role: 'Burning Ninja',
         statusMessage: "I will relieve you of your burden!",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1357307930225
     },
     {
         uid: "JOHNNYCAGE",
@@ -38,7 +38,7 @@ const userList = [
         email: 'johnnycage@mortalkombat.com',
         role: 'Law Enforcer',
         statusMessage: "An actor and a Shaolin walk into a bar.",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1547307930225
     },
     {
         uid: "SONYABLADE",
@@ -51,7 +51,7 @@ const userList = [
         email: 'sonyablade@mortalkombat.com',
         role: 'Military Bitch',
         statusMessage: "You're such an ass.",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1552307930225
     },
     {
         uid: "RAIDEN",
@@ -77,7 +77,7 @@ const userList = [
         email: 'liukang@mortalkombat.com',
         role: 'Brus Lee Guy',
         statusMessage: "I have no patience for your humor.",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1567307930225
     },
     {
         uid: "GORO",
@@ -90,7 +90,7 @@ const userList = [
         email: 'goro@mortalkombat.com',
         role: 'Multitasking Guy',
         statusMessage: "Here is what you are owed.",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1568307930225
     },
     {
         uid: "ERRONBLACK",
@@ -103,7 +103,7 @@ const userList = [
         email: 'erronbalck@mortalkombat.com',
         role: 'Cawboy',
         statusMessage: "He offered more coins.",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1569907930225
     },
     {
         uid: "KITANA",
@@ -116,11 +116,11 @@ const userList = [
         email: 'kitana@mortalkombat.com',
         role: 'Nasty Bitch',
         statusMessage: "I know of many.",
-        lastActiveAt: 1547011919
+        lastActiveAt: 1569007930225
     }
 ];
 
-const getRandomElement = () => userList[Math.floor(Math.random() * userList.length)];
+const getRandomElement = () => usersList[Math.floor(Math.random() * usersList.length)];
 
 export const initChat = () => {
     return new Promise((resolve, reject) => {
@@ -159,7 +159,7 @@ export const sendChatMessage = message => {
 export const fetchUserList = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(userList);
+            resolve(usersList);
         });
     });
     /*const limit = 30;
