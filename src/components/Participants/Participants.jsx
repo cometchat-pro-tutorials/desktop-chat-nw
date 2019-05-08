@@ -3,11 +3,20 @@ import { PermIdentity } from '@material-ui/icons/index';
 
 import "./Participants.css";
 
+const getMinutesFromTimestamp = (timestamp) => (new Date(+ new Date() - timestamp).getMinutes());
 
-const Participants = () => (
+const Participants = ({list}) => (
   <div className="sidebar">
     <ul>
-      <li className="participant-area">
+        {list && list.map(user => (
+            <li className="participant-area" key={user.uid+user.authToken}>
+                <div className="participant">
+                    <PermIdentity /><strong>{user.name}</strong>
+                    <p>Joined {getMinutesFromTimestamp(user.lastActiveAt)} min ago</p>
+                </div>
+            </li>
+        ))}
+      {/*<li className="participant-area">
         <div className="participant">
           <PermIdentity /><strong>Mihail Gaberov</strong>
           <p>Joined 2 mins ago</p>
@@ -18,7 +27,7 @@ const Participants = () => (
           <PermIdentity /><strong>John Doe</strong>
           <p>Joined 1 min ago</p>
         </div>
-      </li>
+      </li>*/}
     </ul>
   </div>
 );
