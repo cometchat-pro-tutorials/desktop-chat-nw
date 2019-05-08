@@ -156,7 +156,7 @@ export const sendChatMessage = message => {
 
 };
 
-export const getUserList = () => {
+export const fetchUserList = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(userList);
