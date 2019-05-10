@@ -1,5 +1,4 @@
 import { CometChat } from "@cometchat-pro/chat";
-
 const usersList = [
     {
         uid: "SUBZERO",
@@ -119,6 +118,23 @@ const usersList = [
         lastActiveAt: 1569007930225
     }*/
 ];
+const groupList = [
+    {
+        "guid": "supergroup",
+        "name": "Mortal Kombat Meeting",
+        "type": "public",
+        "description": "Meeting old buddies.",
+        "createdAt": 1556696475,
+        "updatedAt": 1543931333,
+        "owner": "sub-zero",
+        "hasJoined": true,
+        "icon": "https://data.cometchat.com/assets/images/avatars/supergroup.png",
+        "joinedAt:": 1556696476,
+        "metadata": {
+            "custom_key": "CUSTOM_INFORMATION"
+        }
+    }
+];
 
 const getRandomElement = () => usersList[Math.floor(Math.random() * usersList.length)];
 
@@ -134,7 +150,6 @@ export const initChat = () => {
 export const loginChat = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            receiveMessage();
             resolve(getRandomElement());
         }, 100);
     });
@@ -175,26 +190,22 @@ export const fetchUserList = () => {
     );*/
 };
 
-export const receiveMessage = () => {
-    const listenerID = getRandomElement().name;
+export const fetchGroupsList = () => {
+    return new Promise(resolve =>  {
+        setTimeout(() => resolve(groupList));
+    });
+/*    const limit = 30;
 
-    CometChat.addMessageListener(
-      listenerID,
-      new CometChat.MessageListener({
-          onTextMessageReceived: textMessage => {
-              console.log("Text message successfully", textMessage);
-              // Handle text message
-          },
-          onMediaMessageReceived: mediaMessage => {
-              console.log("Media message received successfully",  mediaMessage);
-              // Handle media message
-          },
-          onCutomMessageReceived: customMessage => {
-              console.log("Custom message received successfully",  customMessage);
-              // Handle custom message
-          }
+    const groupsRequest = new CometChat.GroupsRequestBuilder().setLimit(limit).build();
 
-      })
-    );
-
+    return groupsRequest.fetchNext().then(
+      groupList => {
+          /!* groupList will be the list of Group class *!/
+          console.log("Groups list fetched successfully", groupList);
+          /!* you can display the list of groups available using groupList *!/
+      },
+      error => {
+          console.log("Groups list fetching failed with error", error);
+      }
+    );*/
 };
