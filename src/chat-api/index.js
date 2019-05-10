@@ -78,3 +78,19 @@ export const fetchGroupsList = () => {
         }
     );
 };
+
+export const fetchChatGroupConversations = () => {
+    const GUID = "mkgroup";
+    const limit = 30;
+
+    const messageRequest = new CometChat.MessagesRequestBuilder().setGUID(GUID).setLimit(limit).build();
+
+    messageRequest.fetchPrevious().then(
+        messages => {
+            console.log("Message list fetched: ", messages);
+        },
+        error => {
+            console.log("Message fetching failed with error: ", error);
+        }
+    );
+};
