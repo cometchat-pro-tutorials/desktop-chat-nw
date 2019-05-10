@@ -97,6 +97,18 @@ const groupList = [
         }
     }
 ];
+const conversations = [
+    {
+        "cid": "test",
+        "text": "Where the heck have you been?",
+        "time": "10:33:44 AM"
+    },
+    {
+        "cid": "test1",
+        "text": "In the bloody fighting arena, you moron!",
+        "time": "10:34:34 AM"
+    }
+];
 
 const getRandomElement = () => usersList[Math.floor(Math.random() * usersList.length)];
 
@@ -118,10 +130,11 @@ export const loginChat = () => {
 };
 
 export const sendChatMessage = message => {
-    const receiverID = getRandomElement().name;
+    // const receiverID = getRandomElement().name;
+    const receiverID = "mkgroup";
     const messageText = message;
     const messageType = CometChat.MESSAGE_TYPE.TEXT;
-    const receiverType = CometChat.RECEIVER_TYPE.USER;
+    const receiverType = CometChat.RECEIVER_TYPE.GROUP;
 
     const textMessage = new CometChat.TextMessage(receiverID, messageText, messageType, receiverType);
 
@@ -144,5 +157,11 @@ export const fetchUserList = () => {
 export const fetchGroupsList = () => {
     return new Promise(resolve => {
         setTimeout(() => resolve(groupList));
+    });
+};
+
+export const fetchChatGroupConversations = () => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(conversations));
     });
 };
