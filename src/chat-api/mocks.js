@@ -1,4 +1,5 @@
 import { CometChat } from "@cometchat-pro/chat";
+
 const usersList = [
     {
         uid: "SUBZERO",
@@ -77,50 +78,11 @@ const usersList = [
         role: 'Brus Lee Guy',
         statusMessage: "I have no patience for your humor.",
         lastActiveAt: 1567307930225
-    }/*,
-    {
-        uid: "GORO",
-        name: "Goro",
-        authToken: "123",
-        avatar: "http://url-to-avatar",
-        link: "http://url-to-profile",
-        status: "online | offline",
-        credits: 1000,
-        email: 'goro@mortalkombat.com',
-        role: 'Multitasking Guy',
-        statusMessage: "Here is what you are owed.",
-        lastActiveAt: 1568307930225
-    },
-    {
-        uid: "ERRONBLACK",
-        name: "Erron Black",
-        authToken: "123",
-        avatar: "http://url-to-avatar",
-        link: "http://url-to-profile",
-        status: "online | offline",
-        credits: 1000,
-        email: 'erronbalck@mortalkombat.com',
-        role: 'Cawboy',
-        statusMessage: "He offered more coins.",
-        lastActiveAt: 1569907930225
-    },
-    {
-        uid: "KITANA",
-        name: "Kitana",
-        authToken: "123",
-        avatar: "http://url-to-avatar",
-        link: "http://url-to-profile",
-        status: "online | offline",
-        credits: 1000,
-        email: 'kitana@mortalkombat.com',
-        role: 'Nasty Bitch',
-        statusMessage: "I know of many.",
-        lastActiveAt: 1569007930225
-    }*/
+    }
 ];
 const groupList = [
     {
-        "guid": "supergroup",
+        "guid": "mkgroup",
         "name": "Mortal Kombat Meeting",
         "type": "public",
         "description": "Meeting old buddies.",
@@ -177,35 +139,10 @@ export const fetchUserList = () => {
             resolve(usersList);
         });
     });
-    /*const limit = 30;
-    const userRequest = new CometChat.UsersRequestBuilder().setLimit(limit).build();
-
-    userRequest.fetchNext().then(
-        userList => {
-            console.log('user list received: ', userList);
-        },
-        error => {
-            console.log("User list fetching failed with error: ", error);
-        }
-    );*/
 };
 
 export const fetchGroupsList = () => {
-    return new Promise(resolve =>  {
+    return new Promise(resolve => {
         setTimeout(() => resolve(groupList));
     });
-/*    const limit = 30;
-
-    const groupsRequest = new CometChat.GroupsRequestBuilder().setLimit(limit).build();
-
-    return groupsRequest.fetchNext().then(
-      groupList => {
-          /!* groupList will be the list of Group class *!/
-          console.log("Groups list fetched successfully", groupList);
-          /!* you can display the list of groups available using groupList *!/
-      },
-      error => {
-          console.log("Groups list fetching failed with error", error);
-      }
-    );*/
 };
