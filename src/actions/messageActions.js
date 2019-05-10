@@ -1,9 +1,13 @@
 // import { sendChatMessage } from "../chat-api";
-import { sendChatMessage } from "../chat-api/mocks";
+import { fetchChatGroupConversations, sendChatMessage } from "../chat-api/mocks";
 
 export const SEND_MESSAGE_BEGIN = 'SEND_MESSAGE_BEGIN';
 export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS';
 export const SEND_MESSAGE_FAILED = 'SEND_MESSAGE_FAILED';
+
+export const FETCH_GROUP_CONVERSATIONS_BEGIN = 'FETCH_GROUP_CONVERSATIONS_BEGIN';
+export const FETCH_GROUP_CONVERSATIONS_SUCCESS = 'FETCH_GROUP_CONVERSATIONS_SUCCESS';
+export const FETCH_GROUP_CONVERSATIONS_FAILED = 'FETCH_GROUP_CONVERSATIONS_FAILED';
 
 
 export const sendMessageBegin = () => ({
@@ -33,4 +37,34 @@ export const sendMessage = message => {
                 dispatch(sendMessageFailed(error))
             );
     };
+};
+
+
+export const fetchGroupConversationsBegin = () => ({
+    type: FETCH_GROUP_CONVERSATIONS_BEGIN
+});
+
+export const fetchGroupConversationsSuccess = ({conversations}) => ({
+    type: FETCH_GROUP_CONVERSATIONS_SUCCESS,
+    payload: { conversations }
+});
+
+export const fetchGroupConversationsFailed = error => ({
+    type: FETCH_GROUP_CONVERSATIONS_FAILED,
+    payload: { error }
+});
+
+
+export const fetchGroupConversations = () => {
+    return dispatch => {
+        dispatch(fetchGroupConversationsBegin());
+        return fetchChatGroupConversations()
+            .then(json => {
+                dispatch(sendMessageSuccess(json));
+                return json;
+            })
+            .catch(error =>
+                dispatch(sendMessageFailed(error))
+            );
+    }
 };
