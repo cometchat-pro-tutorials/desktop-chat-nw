@@ -8,18 +8,19 @@ import "./ChatPane.css";
 
 const ChatPane = ({ init, login, getUsersList, fetchGroupConversations }) => {
     const [usersList, setUsersList] = useState([]);
+    const [groupConversations, setGroupConversations] = useState([]);
 
     useEffect(() => {
         init().then(login().then(() => {
             getUsersList().then(usersList => setUsersList(usersList));
-            fetchGroupConversations().then(data => console.log('>>> conversations: ', data));
+            fetchGroupConversations().then(conversationsData => setGroupConversations(conversationsData));
         }));
-    }, [getUsersList, login, init]);
+    }, [getUsersList, login, init, fetchGroupConversations]);
 
     return (
         <div className="chat-pane">
             <Participants list={usersList}/>
-            <Conversation />
+            <Conversation groupConversations={groupConversations} />
         </div>);
 };
 

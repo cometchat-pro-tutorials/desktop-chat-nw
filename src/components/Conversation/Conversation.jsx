@@ -6,8 +6,19 @@ import Messages from "../Messages/Messages";
 import { sendMessage } from "../../actions"
 import "./Converstaion.css";
 
-const Conversation = ({sendMessage}) => {
+const Conversation = ({ sendMessage, groupConversations }) => {
   const [message, setMessage] = useState('');
+
+  const messages = groupConversations.map(conversationData => {
+    const date = new Date(conversationData.sentAt * 1000);
+    const hours = date.getHours();
+    const minutes = "0" + date.getMinutes();
+    const seconds = "0" + date.getSeconds();
+    const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    return {text: conversationData.text, formattedTime}
+  });
+
+  console.log(messages, '<<< messages');
 
 
   const handleSend = () => {
