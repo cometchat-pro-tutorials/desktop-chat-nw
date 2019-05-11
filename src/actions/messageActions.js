@@ -60,11 +60,11 @@ export const fetchGroupConversations = () => {
         dispatch(fetchGroupConversationsBegin());
         return fetchChatGroupConversations()
             .then(json => {
-                dispatch(sendMessageSuccess(json));
+                dispatch(fetchGroupConversationsSuccess(json));
                 return json;
             })
             .catch(error =>
-                dispatch(sendMessageFailed(error))
+                dispatch(fetchGroupConversationsFailed(error))
             );
     }
 };

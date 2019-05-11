@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 
 import Participants from "../Participants/Participants";
 import Conversation from "../Conversation/Conversation";
-import { getUsersList, init, login } from '../../actions';
+import { fetchGroupConversations, getUsersList, init, login } from '../../actions';
 import "./ChatPane.css";
 
-const ChatPane = ({ init, login, getUsersList }) => {
+const ChatPane = ({ init, login, getUsersList, fetchGroupConversations }) => {
     const [usersList, setUsersList] = useState([]);
 
     useEffect(() => {
-        init().then(login().then((userData) => {
-            console.log('logging in user: ', userData);
+        init().then(login().then(() => {
             getUsersList().then(usersList => setUsersList(usersList));
+            fetchGroupConversations().then(data => console.log('>>> conversations: ', data));
         }));
     }, [getUsersList, login, init]);
 
@@ -26,7 +26,8 @@ const ChatPane = ({ init, login, getUsersList }) => {
 const mapDispatchToProps = (dispatch) => ({
     init: () => dispatch(init()),
     login: () => dispatch(login()),
-    getUsersList: () => dispatch(getUsersList())
+    getUsersList: () => dispatch(getUsersList()),
+    fetchGroupConversations: () => dispatch(fetchGroupConversations())
 });
 
 export default connect(null, mapDispatchToProps)(ChatPane);

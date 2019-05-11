@@ -23,7 +23,6 @@ export const loginChat = () => {
   return CometChat.login(UID, apiKey).then(
     user => {
       attachReceivedMessageListener();
-      fetchChatGroupConversations();
       return user;
     },
     error => {
@@ -96,9 +95,9 @@ export const fetchChatGroupConversations = () => {
 
   const messageRequest = new CometChat.MessagesRequestBuilder().setGUID(GUID).setLimit(limit).build();
 
-  messageRequest.fetchPrevious().then(
+  return messageRequest.fetchPrevious().then(
     messages => {
-      console.log("Message list fetched: ", messages);
+      return messages;
     },
     error => {
       console.log("Message fetching failed with error: ", error);
