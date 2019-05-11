@@ -22,8 +22,8 @@ export const initChat = () => {
 export const loginChat = () => {
   return CometChat.login(UID, apiKey).then(
     user => {
-      // console.log("Login Successful:", { user });
       attachReceivedMessageListener();
+      return user;
     },
     error => {
       console.log("Login failed with exception:", { error });
@@ -81,7 +81,7 @@ export const fetchUserList = () => {
 
   return userRequest.fetchNext().then(
     userList => {
-      // console.log('user list received: ', userList);
+      return userList;
     },
     error => {
       console.log("User list fetching failed with error: ", error);

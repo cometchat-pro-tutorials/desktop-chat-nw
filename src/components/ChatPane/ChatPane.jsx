@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import Participants from "../Participants/Participants";
 import Conversation from "../Conversation/Conversation";
-import { init, login, getUsersList, getGroupsList } from '../../actions';
+import { getGroupsList, getUsersList, init, login } from '../../actions';
 import "./ChatPane.css";
 
 const ChatPane = ({ init, login, getUsersList, getGroupsList }) => {
@@ -13,7 +13,6 @@ const ChatPane = ({ init, login, getUsersList, getGroupsList }) => {
         init().then(login().then((userData) => {
             // console.log('logging in user: ', userData);
             getUsersList().then(usersList => setUsersList(usersList));
-            // getGroupsList().then(d => console.log('groups: ', d));
         }));
     }, [getGroupsList, getUsersList, login, init]);
 
