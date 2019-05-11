@@ -90,22 +90,6 @@ export const fetchUserList = () => {
   );
 };
 
-export const fetchGroupsList = () => {
-  const limit = 30;
-  const groupsRequest = new CometChat.GroupsRequestBuilder().setLimit(limit).build();
-
-  return groupsRequest.fetchNext().then(
-    groupList => {
-      /* groupList will be the list of Group class */
-      console.log("Groups list fetched successfully", groupList);
-      /* you can display the list of groups available using groupList */
-    },
-    error => {
-      console.log("Groups list fetching failed with error", error);
-    }
-  );
-};
-
 export const fetchChatGroupConversations = () => {
   const GUID = "supergroup";
   const limit = 30;
