@@ -4,16 +4,14 @@ import { Button, TextField } from "@material-ui/core";
 
 import Messages from "../Messages/Messages";
 import { sendMessage } from "../../actions"
-import { readRecord } from '../../utils/localStorageService';
 import "./Converstaion.css";
 
 const Conversation = ({sendMessage}) => {
   const [message, setMessage] = useState('');
-  const username = readRecord('username');
 
 
   const handleSend = () => {
-    sendMessage({message, username}).then(msg => console.log(msg));
+    sendMessage(message).then(msg => console.log(msg));
   };
 
   return (

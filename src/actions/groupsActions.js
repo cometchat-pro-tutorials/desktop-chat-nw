@@ -1,5 +1,5 @@
-// import { fetchUserList } from "../chat-api";
-import { fetchGroupsList } from "../chat-api/mocks";
+import { fetchGroupsList } from "../chat-api";
+// import { fetchGroupsList } from "../chat-api/mocks";
 
 export const GET_GROUPS_LIST_BEGIN = 'GET_GROUPS_LIST_BEGIN';
 export const GET_GROUPS_LIST_SUCCESS = 'GET_GROUPS_LIST_SUCCESS';

@@ -11,9 +11,9 @@ const ChatPane = ({ init, login, getUsersList, getGroupsList }) => {
 
     useEffect(() => {
         init().then(login().then((userData) => {
-            console.log('logging in user: ', userData);
+            // console.log('logging in user: ', userData);
             getUsersList().then(usersList => setUsersList(usersList));
-            getGroupsList().then(d => console.log('groups: ', d));
+            // getGroupsList().then(d => console.log('groups: ', d));
         }));
     }, [getGroupsList, getUsersList, login, init]);
 
