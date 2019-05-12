@@ -15,14 +15,19 @@ const Conversation = ({ sendMessage, groupConversations }) => {
   useEffect(() => {
     setMessages(prepareMessages(groupConversations));
     const messagesArea = messagesAreaRef.current;
+
+    document.addEventListener('keydown', handleKeyPress);
+
     return () => {
       scrollToBottom(messagesArea);
+      document.removeEventListener('keydown', handleKeyPress);
     }
 
   }, [groupConversations]);
 
-  const handleSend = () => {
+  const processMessage = (message) => {
     sendMessage(message).then(msg => {
+      console.log('messages: ', messages);
       setMessages([...messages, ...prepareMessages([msg])]);
       setMessage(''); // Clear text input
       const messagesArea = messagesAreaRef.current;
@@ -31,8 +36,18 @@ const Conversation = ({ sendMessage, groupConversations }) => {
       if (shouldScroll) {
         scrollToBottom(messagesArea);
       }
-
     });
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      console.log('>>> e.target.value',e.target.value);
+      processMessage(e.target.value);
+    }
+  };
+
+  const handleSend = () => {
+    processMessage(message);
   };
 
   return (
