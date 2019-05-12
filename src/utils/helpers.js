@@ -1,4 +1,4 @@
-export const getMinutesFromLastActiveTimestamp = (timestamp) => (new Date(+ new Date() - timestamp).getMinutes());
+export const getMinutesFromLastActiveTimestamp = (timestamp) => (new Date(+new Date() - timestamp).getMinutes());
 
 export const formatTime = (sentAtTimestamp) => {
   const date = new Date(sentAtTimestamp * 1000);
@@ -11,11 +11,15 @@ export const formatTime = (sentAtTimestamp) => {
 export const prepareMessages = (messagesData) => {
   return messagesData.map(conversationData => {
     const formattedTime = formatTime(conversationData.sentAt);
-    return {sender: conversationData.sender.name, text: conversationData.text, formattedTime}
+    return { sender: conversationData.sender.name, text: conversationData.text, formattedTime }
   });
 };
 
 export const scrollToBottom = (elementToBeScrolled) => {
-  console.log('>>>scrollTo: ', elementToBeScrolled);
-  elementToBeScrolled.scrollTop = elementToBeScrolled.scrollHeight;
+  /* Added in setInterval in order to handle the case when the chat is loaded
+  or the page is refreshed */
+  setInterval(() => {
+    elementToBeScrolled.scrollTop = elementToBeScrolled.scrollHeight;
+  });
+
 };
