@@ -10,13 +10,14 @@ import "./Converstaion.css";
 const Conversation = ({ sendMessage, groupConversations }) => {
   const [message, setMessage] = useState('');
 
-  const messages = groupConversations.map(conversationData => {
-    const formattedTime = formatTime(conversationData.sentAt);
-    return {text: conversationData.text, formattedTime}
-  });
+  const prepareMessages = (messagesData) => {
+    return messagesData.map(conversationData => {
+      const formattedTime = formatTime(conversationData.sentAt);
+      return {sender: conversationData.sender.getName(), text: conversationData.text, formattedTime}
+    });
+  };
 
-  console.log(messages, '<<< messages');
-
+  const messages = prepareMessages(groupConversations);
 
   const handleSend = () => {
     sendMessage(message).then(msg => console.log(msg));
@@ -24,7 +25,7 @@ const Conversation = ({ sendMessage, groupConversations }) => {
 
   return (
     <div className="conversation">
-      <Messages/>
+      <Messages data={messages}/>
       <form className="chat-form">
         <div>
           <TextField

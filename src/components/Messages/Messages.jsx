@@ -2,22 +2,17 @@ import React from "react";
 
 import "./Messages.css";
 
-const Messages = () => (
+const Messages = ({data}) => (
   <ul className="messages">
-    <li className="message">
-      <div>
-        <strong>John Doe:</strong>
-        <p>Hello, how are you today?</p>
-      </div>
-      <div><time>10:33:55 AM</time></div>
-    </li>
-    <li className="message">
-      <div>
-        <strong>Mihail Gaberov:</strong>
-        <p>Hello, I am good, thanks!</p>
-      </div>
-      <div><time>10:34:23 AM</time></div>
-    </li>
+    {data && data.map((msg, idx) => (
+      <li key={idx} className="message">
+        <div>
+          <strong>{msg.sender}:</strong>
+          <p>{msg.text}</p>
+        </div>
+        <div><time>{msg.formattedTime}</time></div>
+      </li>
+    ))}
   </ul>
 );
 
