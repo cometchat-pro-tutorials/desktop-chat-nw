@@ -1,26 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Button, TextField } from "@material-ui/core";
 
 import Messages from "../Messages/Messages";
 import { sendMessage } from "../../actions"
-import { formatTime } from '../../utils/helpers';
+import { prepareMessages } from '../../utils/helpers';
 import "./Converstaion.css";
 
 const Conversation = ({ sendMessage, groupConversations }) => {
   const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
 
-  const prepareMessages = (messagesData) => {
-    return messagesData.map(conversationData => {
-      const formattedTime = formatTime(conversationData.sentAt);
-      return {sender: conversationData.sender.getName(), text: conversationData.text, formattedTime}
-    });
-  };
-
-  const messages = prepareMessages(groupConversations);
+  useEffect(() => {
+    setMessages(prepareMessages(groupConversations));
+  }, [groupConversations]);
 
   const handleSend = () => {
-    sendMessage(message).then(msg => console.log(msg));
+    sendMessage(message).then(msg => {
+      setMessages([...messages, ...prepareMessages([msg])]);
+    });
   };
 
   return (

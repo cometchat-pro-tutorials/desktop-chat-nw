@@ -7,3 +7,10 @@ export const formatTime = (sentAtTimestamp) => {
   const seconds = "0" + date.getSeconds();
   return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 };
+
+export const prepareMessages = (messagesData) => {
+  return messagesData.map(conversationData => {
+    const formattedTime = formatTime(conversationData.sentAt);
+    return {sender: conversationData.sender.name, text: conversationData.text, formattedTime}
+  });
+};
