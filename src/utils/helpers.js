@@ -14,3 +14,8 @@ export const prepareMessages = (messagesData) => {
     return {sender: conversationData.sender.name, text: conversationData.text, formattedTime}
   });
 };
+
+export const scrollToBottom = (elementToBeScrolled) => {
+  console.log('>>>scrollTo: ', elementToBeScrolled);
+  elementToBeScrolled.scrollTop = elementToBeScrolled.scrollHeight;
+};
