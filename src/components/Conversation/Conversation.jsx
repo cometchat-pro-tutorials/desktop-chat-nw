@@ -24,7 +24,7 @@ const Conversation = ({ sendMessage, groupConversations }) => {
   const handleSend = () => {
     sendMessage(message).then(msg => {
       setMessages([...messages, ...prepareMessages([msg])]);
-
+      setMessage(''); // Clear text input
       const messagesArea = messagesAreaRef.current;
       const shouldScroll = messagesArea.scrollTop + messagesArea.clientHeight !== messagesArea.scrollHeight;
 
