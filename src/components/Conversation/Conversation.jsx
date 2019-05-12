@@ -4,17 +4,14 @@ import { Button, TextField } from "@material-ui/core";
 
 import Messages from "../Messages/Messages";
 import { sendMessage } from "../../actions"
+import { formatTime } from '../../utils/helpers';
 import "./Converstaion.css";
 
 const Conversation = ({ sendMessage, groupConversations }) => {
   const [message, setMessage] = useState('');
 
   const messages = groupConversations.map(conversationData => {
-    const date = new Date(conversationData.sentAt * 1000);
-    const hours = date.getHours();
-    const minutes = "0" + date.getMinutes();
-    const seconds = "0" + date.getSeconds();
-    const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    const formattedTime = formatTime(conversationData.sentAt);
     return {text: conversationData.text, formattedTime}
   });
 

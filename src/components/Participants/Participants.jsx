@@ -1,9 +1,8 @@
 import React from "react";
 import { PermIdentity } from '@material-ui/icons/index';
 
+import { getMinutesFromLastActiveTimestamp } from '../../utils/helpers';
 import "./Participants.css";
-
-const getMinutesFromTimestamp = (timestamp) => (new Date(+ new Date() - timestamp).getMinutes());
 
 const Participants = ({list}) => (
   <div className="sidebar">
@@ -12,22 +11,10 @@ const Participants = ({list}) => (
             <li className="participant-area" key={user.uid+user.authToken}>
                 <div className="participant">
                     <PermIdentity /><strong>{user.name}</strong>
-                    <p>Joined {getMinutesFromTimestamp(user.lastActiveAt)} min ago</p>
+                    <p>Joined {getMinutesFromLastActiveTimestamp(user.lastActiveAt)} min ago</p>
                 </div>
             </li>
         ))}
-      {/*<li className="participant-area">
-        <div className="participant">
-          <PermIdentity /><strong>Mihail Gaberov</strong>
-          <p>Joined 2 mins ago</p>
-        </div>
-      </li>
-      <li className="participant-area">
-        <div className="participant">
-          <PermIdentity /><strong>John Doe</strong>
-          <p>Joined 1 min ago</p>
-        </div>
-      </li>*/}
     </ul>
   </div>
 );
