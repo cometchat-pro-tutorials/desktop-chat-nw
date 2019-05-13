@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Participants from "../Participants/Participants";
 import Conversation from "../Conversation/Conversation";
 import { fetchGroupConversations, getUsersList, init, login } from '../../actions';
+import { readRecord } from '../../utils/localStorageService';
 import "./ChatPane.css";
 
 const ChatPane = ({ init, login, getUsersList, fetchGroupConversations }) => {
@@ -11,7 +12,7 @@ const ChatPane = ({ init, login, getUsersList, fetchGroupConversations }) => {
     const [groupConversations, setGroupConversations] = useState([]);
 
     useEffect(() => {
-        init().then(login().then(() => {
+        init().then(login(readRecord('username')).then(() => {
             getUsersList().then(usersList => setUsersList(usersList));
             fetchGroupConversations().then(conversationsData => setGroupConversations(conversationsData));
         }));
