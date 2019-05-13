@@ -38,7 +38,7 @@ const attachReceivedMessageListener = () => {
     listenerID,
     new CometChat.MessageListener({
       onTextMessageReceived: textMessage => {
-        console.log("Text message received successfully", textMessage);
+        // console.log("Text message received successfully", textMessage);
         // Handle text message
       },
       onMediaMessageReceived: mediaMessage => {
