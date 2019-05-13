@@ -4,7 +4,6 @@ require('dotenv').config();
 
 const appID = process.env.REACT_APP_ID;
 const apiKey = process.env.REACT_APP_API_KEY;
-const UID = process.env.REACT_APP_UID;
 
 export const initChat = () => {
   return CometChat.init(appID).then(
@@ -19,8 +18,8 @@ export const initChat = () => {
   );
 };
 
-export const loginChat = () => {
-  return CometChat.login(UID, apiKey).then(
+export const loginChat = (username) => {
+  return CometChat.login(username, apiKey).then(
     user => {
       attachReceivedMessageListener();
       return user;
@@ -38,7 +37,7 @@ const attachReceivedMessageListener = () => {
     listenerID,
     new CometChat.MessageListener({
       onTextMessageReceived: textMessage => {
-        // console.log("Text message received successfully", textMessage);
+        console.log("Text message received successfully", textMessage);
         // Handle text message
       },
       onMediaMessageReceived: mediaMessage => {
