@@ -97,6 +97,23 @@ const groupList = [
     }
   }
 ];
+const messages = [];
+for (let i = 0; i < 10; i++) {
+    const messageText = 'Test message' + i;
+    messages.push({
+        "sender": {
+            "uid": "superhero1",
+            "name": "Iron Man",
+            "lastActiveAt": 1547011919
+        },
+        "receiver": "supergroup",
+        "type": "text",
+        "receiverType": "group",
+        "category": "message",
+        "sentAt": 1547017662,
+        "text": messageText
+    });
+}
 
 const getRandomElement = () => usersList[Math.floor(Math.random() * usersList.length)];
 
@@ -124,6 +141,8 @@ export const sendChatMessage = message => {
   const receiverType = CometChat.RECEIVER_TYPE.GROUP;
 
   const textMessage = new CometChat.TextMessage(receiverID, messageText, messageType, receiverType);
+  textMessage.sentAt = new Date().getTime();
+  textMessage.sender = {name: 'Iron Man'};
 
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -141,7 +160,15 @@ export const fetchUserList = () => {
 };
 
 export const fetchGroupsList = () => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(groupList));
-  });
+    return new Promise(resolve => {
+        setTimeout(() => resolve(groupList));
+    });
+};
+
+
+export const fetchChatGroupConversations = () => {
+    console.log('>>> messages: ', messages);
+    return new Promise(resolve => {
+        setTimeout(() => resolve(messages));
+    });
 };
