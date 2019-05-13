@@ -167,7 +167,6 @@ export const fetchGroupsList = () => {
 
 
 export const fetchChatGroupConversations = () => {
-    console.log('>>> messages: ', messages);
     return new Promise(resolve => {
         setTimeout(() => resolve(messages));
     });
