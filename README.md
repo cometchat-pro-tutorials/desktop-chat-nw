@@ -32,7 +32,6 @@ To run the demo follow these steps:
 ```
     REACT_APP_ID=your app ID
     REACT_APP_API_KEY=your key
-    REACT_APP_UID=SUPERHERO1
 ```
 6. Install the project dependencies via: `npm i` or `yarn install`
 6. Run the app via: `npm run launch` or `yarn launch`
