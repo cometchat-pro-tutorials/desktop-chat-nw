@@ -18,7 +18,7 @@ This demo uses:
 * React 16.8.6
 * Redux 4.0.1
 * redux-thunk 2.3.0
-* Nw.js 0.38.1-sdk
+* Nw.js 0.38.2-sdk
 
 ## Running the demo
 
