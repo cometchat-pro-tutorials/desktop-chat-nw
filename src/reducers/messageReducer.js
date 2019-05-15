@@ -11,7 +11,7 @@ export default function messageReducer(state = initialState.messages, action) {
             return state;
 
         case SEND_MESSAGE_SUCCESS:
-            return [...state, action.payload];
+            return state;
 
         case SEND_MESSAGE_FAILED:
             return {
