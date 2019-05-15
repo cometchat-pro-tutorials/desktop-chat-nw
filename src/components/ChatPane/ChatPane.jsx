@@ -7,7 +7,7 @@ import { fetchGroupConversations, getUsersList, init, login } from '../../action
 import { readRecord } from '../../utils/localStorageService';
 import "./ChatPane.css";
 
-const ChatPane = ({ init, login, getUsersList, fetchGroupConversations }) => {
+const ChatPane = ({ init, login, getUsersList, fetchGroupConversations, messages }) => {
     const [usersList, setUsersList] = useState([]);
     const [groupConversations, setGroupConversations] = useState([]);
 
@@ -18,12 +18,19 @@ const ChatPane = ({ init, login, getUsersList, fetchGroupConversations }) => {
         }));
     }, [getUsersList, login, init, fetchGroupConversations]);
 
+    useEffect(() => {
+        setGroupConversations(messages);
+    }, [messages]);
     return (
         <div className="chat-pane">
             <Participants list={usersList}/>
             <Conversation groupConversations={groupConversations} />
         </div>);
 };
+
+const mapStateToProps = (state) => ({
+    messages: state.messages
+});
 
 const mapDispatchToProps = (dispatch) => ({
     init: () => dispatch(init()),
@@ -32,4 +39,4 @@ const mapDispatchToProps = (dispatch) => ({
     fetchGroupConversations: () => dispatch(fetchGroupConversations())
 });
 
-export default connect(null, mapDispatchToProps)(ChatPane);
+export default connect(mapStateToProps, mapDispatchToProps)(ChatPane);
