@@ -1,4 +1,6 @@
 import { CometChat } from "@cometchat-pro/chat";
+import store from '../store/configureStore';
+import { MESSAGE_RECEIVED, receiveMessage } from '../actions';
 
 const usersList = [
     {
@@ -103,7 +105,7 @@ for (let i = 0; i < 10; i++) {
     messages.push({
         "sender": {
             "uid": "superhero1",
-            "name": "Iron Man",
+            "name": "Sub-Zero",
             "lastActiveAt": 1547011919
         },
         "receiver": "supergroup",
@@ -150,6 +152,7 @@ export const sendChatMessage = message => {
 
     return new Promise((resolve) => {
         setTimeout(() => {
+            dispatchReceivedMessage();
             resolve(textMessage);
         }, 100);
     });
@@ -159,19 +162,40 @@ export const fetchUserList = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(usersList);
-        });
+        }, 100);
     });
 };
 
 export const fetchGroupsList = () => {
     return new Promise(resolve => {
         setTimeout(() => resolve(groupList));
-    });
+    }, 100);
 };
-
 
 export const fetchChatGroupConversations = () => {
     return new Promise(resolve => {
         setTimeout(() => resolve(messages));
-    });
+    }, 100);
+};
+
+export const dispatchReceivedMessage = () => {
+    setTimeout(() => {
+        store.dispatch(receiveMessage(
+            {
+                type: MESSAGE_RECEIVED,
+                payload: {
+                    sender: {
+                        uid: 'superhero1',
+                        name: 'Sub-Zero',
+                        lastActiveAt: 1547011919
+                    },
+                    receiver: 'supergroup',
+                    type: 'text',
+                    receiverType: 'group',
+                    category: 'message',
+                    sentAt: 1547017662,
+                    text: 'Test message - received!'
+                }
+            }));
+    }, 1000);
 };
