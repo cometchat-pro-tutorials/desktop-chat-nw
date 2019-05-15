@@ -25,7 +25,6 @@ const Conversation = ({ sendMessage, groupConversations }) => {
         if (message === '') return;
 
         sendMessage(message).then(msg => {
-            setMessages([...messages, ...prepareMessages([msg])]);
             setMessage(''); // Clear text input
             const messagesArea = messagesAreaRef.current;
             const shouldScroll = messagesArea.scrollTop + messagesArea.clientHeight !== messagesArea.scrollHeight;
@@ -72,7 +71,7 @@ const Conversation = ({ sendMessage, groupConversations }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    sendMessage: (message) => dispatch(sendMessage(message)),
+    sendMessage: (message) => dispatch(sendMessage(message))
 });
 
 export default connect(null, mapDispatchToProps)(Conversation);
