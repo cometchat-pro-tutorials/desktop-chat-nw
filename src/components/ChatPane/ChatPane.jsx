@@ -27,7 +27,7 @@ const ChatPane = ({ init, login, getUsersList, fetchGroupConversations }) => {
 
 const mapDispatchToProps = (dispatch) => ({
     init: () => dispatch(init()),
-    login: () => dispatch(login()),
+    login: (username) => dispatch(login(username)),
     getUsersList: () => dispatch(getUsersList()),
     fetchGroupConversations: () => dispatch(fetchGroupConversations())
 });

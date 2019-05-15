@@ -1,12 +1,13 @@
-// import { loginChat } from '../chat-api';
-import { loginChat } from '../chat-api/mocks';
+import { loginChat } from '../chat-api';
+// import { loginChat } from '../chat-api/mocks';
 
 export const LOGIN_BEGIN = 'LOGIN_BEGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 
-export const loginBegin = () => ({
-  type: LOGIN_BEGIN
+export const loginBegin = (username) => ({
+  type: LOGIN_BEGIN,
+  payload: { username }
 });
 
 export const loginSuccess = () => ({
@@ -19,7 +20,7 @@ export const loginFailed = () => ({
 
 export const login = (username) => {
     return dispatch => {
-        dispatch(loginBegin());
+        dispatch(loginBegin(username));
         return loginChat(username)
             .then(json => {
                 dispatch(loginSuccess());
