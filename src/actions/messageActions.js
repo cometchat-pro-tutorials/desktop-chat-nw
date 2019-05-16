@@ -1,5 +1,5 @@
-// import { fetchChatGroupConversations, sendChatMessage } from "../chat-api";
-import { fetchChatGroupConversations, sendChatMessage } from "../chat-api/mocks";
+import { fetchChatGroupConversations, sendChatMessage } from "../chat-api";
+// import { fetchChatGroupConversations, sendChatMessage } from "../chat-api/mocks";
 
 export const SEND_MESSAGE_BEGIN = 'SEND_MESSAGE_BEGIN';
 export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS';
@@ -11,7 +11,7 @@ export const FETCH_GROUP_CONVERSATIONS_FAILED = 'FETCH_GROUP_CONVERSATIONS_FAILE
 
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
 
-export const receiveMessage = ({ payload }) => ({
+export const receiveMessage = (payload) => ({
     type: MESSAGE_RECEIVED,
     payload
 });

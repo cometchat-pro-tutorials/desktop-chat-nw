@@ -100,6 +100,23 @@ const groupList = [
     }
 ];
 const messages = [];
+const singleMessage = {
+    type: MESSAGE_RECEIVED,
+    payload: {
+        sender: {
+            uid: 'superhero1',
+            name: 'Sub-Zero',
+            lastActiveAt: 1547011919
+        },
+        receiver: 'supergroup',
+        type: 'text',
+        receiverType: 'group',
+        category: 'message',
+        sentAt: 1547017662,
+        text: 'Test message - received!'
+    }
+};
+
 for (let i = 0; i < 10; i++) {
     const messageText = 'Test message' + i;
     messages.push({
@@ -180,22 +197,6 @@ export const fetchChatGroupConversations = () => {
 
 export const dispatchReceivedMessage = () => {
     setTimeout(() => {
-        store.dispatch(receiveMessage(
-            {
-                type: MESSAGE_RECEIVED,
-                payload: {
-                    sender: {
-                        uid: 'superhero1',
-                        name: 'Sub-Zero',
-                        lastActiveAt: 1547011919
-                    },
-                    receiver: 'supergroup',
-                    type: 'text',
-                    receiverType: 'group',
-                    category: 'message',
-                    sentAt: 1547017662,
-                    text: 'Test message - received!'
-                }
-            }));
+        store.dispatch(receiveMessage(singleMessage));
     }, 1000);
 };

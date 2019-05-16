@@ -1,4 +1,6 @@
 import { CometChat } from "@cometchat-pro/chat";
+import store from "../store/configureStore";
+import { receiveMessage } from "../actions";
 
 require('dotenv').config();
 
@@ -38,7 +40,7 @@ const attachReceivedMessageListener = () => {
     new CometChat.MessageListener({
       onTextMessageReceived: textMessage => {
         console.log("Text message received successfully", textMessage);
-        return textMessage;
+        dispatchReceivedMessage(textMessage);
       },
       onMediaMessageReceived: mediaMessage => {
         console.log("Media message received successfully", mediaMessage);
@@ -102,4 +104,8 @@ export const fetchChatGroupConversations = () => {
       console.log("Message fetching failed with error: ", error);
     }
   );
+};
+
+export const dispatchReceivedMessage = (message) => {
+  store.dispatch(receiveMessage(message));
 };
