@@ -10,6 +10,8 @@ This example shows how to build a desktop chat app with React and Nw.js:
 ### Screenshots
 ![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/welcome-screen.png)
 ![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/chat-screen.png)
+![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/live-chat-browser.png)
+![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/live-chat-desktop.png)
 
 ## Technology
 This demo uses:
