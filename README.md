@@ -28,7 +28,7 @@ To run the demo follow these steps:
 
 1. [Head to CometChat Pro and create an account](https://cometchat.com/pro?utm_source=github&utm_medium=example-code-readme)
 2. From the [dashboard](https://app.cometchat.com/?utm_source=github&utm_medium=example-code-readme), create a new app called "desktop-chat-nw"
-3. One created, click **Explore**
+3. Once created, click **Explore**
 4. Go to the **API Keys** tab and click **Create API Key**
 5. Create an API key called "desktop-chat-nw" with **Full Access**
 4. Download the repository [here](https://github.com/mihailgaberov/desktop-chat-nw/archive/master.zip) or by running `git clone https://github.com/mihailgaberov/desktop-chat-nw.git` and open it in your favorite IDE.
