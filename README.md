@@ -8,6 +8,7 @@ Read the full tutorial here:
 This example shows how to build a desktop chat app with React and Nw.js:
 
 ### Screenshots
+![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/working-chat.gif)
 ![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/welcome-screen.png)
 ![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/chat-screen.png)
 ![screenshot](https://github.com/mihailgaberov/desktop-chat-nw/blob/master/screenshots/live-chat-browser.png)
@@ -40,6 +41,8 @@ To run the demo follow these steps:
 6. Install the project dependencies via: `npm i` or `yarn install`
 6. Run the app via: `npm run launch` or `yarn launch`
 7. Once the app loads the login screen use one of the test users: superhero1, superhero2, superhero3, superhero4 or superhero5 to login
+
+Note: when doing multiple tests make sure your local storage is empty or you will be logged as the user (e.g. superhero3)
 
 Questions about running the demo? [Open an issue](https://github.com/mihailgaberov/desktop-chat-nw/issues). We're here to help ✌️
 
