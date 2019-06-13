@@ -4,6 +4,7 @@ Read the full tutorial here:
 
 [**>> Build a desktop chat app with CometChat, React and Nw.js**](https://www.cometchat.com/pro/tutorials/build-a-desktop-chat-app-with-cometchat-react-nwjs/?utm_source=github&utm_medium=example-code-readme)
 
+[**>> Live Demo Here**](https://hungry-goldberg-c3dffc.netlify.com/)
 
 This example shows how to build a desktop chat app with React and Nw.js:
 
