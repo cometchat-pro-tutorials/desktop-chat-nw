@@ -9,6 +9,8 @@ export const formatTime = (sentAtTimestamp) => {
 };
 
 export const prepareMessages = (messagesData) => {
+  if (!messagesData) return;
+
   return messagesData.map(conversationData => {
     const formattedTime = formatTime(conversationData.sentAt);
     return { sender: conversationData.sender.name, text: conversationData.text, formattedTime }
