@@ -33,15 +33,15 @@ To run the demo follow these steps:
 3. Once created, click **Explore**
 4. Go to the **API Keys** tab and click **Create API Key**
 5. Create an API key called "desktop-chat-nw" with **Full Access**
-4. Download the repository [here](https://github.com/mihailgaberov/desktop-chat-nw/archive/master.zip) or by running `git clone https://github.com/mihailgaberov/desktop-chat-nw.git` and open it in your favorite IDE.
-5. Create a .env file in the project directory with your newly-created credentials, such as:
+6. Download the repository [here](https://github.com/mihailgaberov/desktop-chat-nw/archive/master.zip) or by running `git clone https://github.com/mihailgaberov/desktop-chat-nw.git` and open it in your favorite IDE.
+7. Create a .env file in the project directory with your newly-created credentials, such as:
 ```
     REACT_APP_ID=your app ID
     REACT_APP_API_KEY=your key
 ```
-6. Install the project dependencies via: `npm i` or `yarn install`
-6. Run the app via: `npm run launch` or `yarn launch`
-7. Once the app loads the login screen use one of the test users: superhero1, superhero2, superhero3, superhero4 or superhero5 to login
+8. Install the project dependencies via: `npm i` or `yarn install`
+9. Run the app via: `npm run launch` or `yarn launch`
+10. Once the app loads the login screen use one of the test users: superhero1, superhero2, superhero3, superhero4 or superhero5 to login
 
 __Note: The best way to test it locally is to open two instances of your browser, one in normal mode and one in incognito mode. When doing multiple tests, make sure your local storage is empty or you will be logged as the user whose details are already recorded there, for example "superhero3"._
 _
