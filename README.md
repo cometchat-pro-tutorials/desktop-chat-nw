@@ -39,8 +39,8 @@ To run the demo follow these steps:
     REACT_APP_ID=your app ID
     REACT_APP_API_KEY=your key
 ```
-8. Install the project dependencies via: `npm i` or `yarn install`
-9. Run the app via: `npm run launch` or `yarn launch`
+8. Install the project dependencies via: `npm i`
+9. Run the app via: `npm run launch`
 10. Once the app loads the login screen use one of the test users: superhero1, superhero2, superhero3, superhero4 or superhero5 to login
 
 __Note: The best way to test it locally is to open two instances of your browser, one in normal mode and one in incognito mode. When doing multiple tests, make sure your local storage is empty or you will be logged as the user whose details are already recorded there, for example "superhero3"._
